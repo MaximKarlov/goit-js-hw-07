@@ -10,7 +10,7 @@ function createImgCards(galleryItems) {
     return galleryItems
         .map(({preview, original, description}) => {
             return `<div class="gallery__item">
-  <a class="gallery__link" rel="noopener noreferrer">
+  <a class="gallery__link" rel="noopener noreferrer" href="${original}>
     <img
       class="gallery__image"
       src="${preview}"
@@ -27,6 +27,10 @@ function createImgCards(galleryItems) {
 galleryRef.addEventListener("click", makeModal);
 
 function makeModal(evt) {
+    const imgVerification = evt.target.nodeName;
+    if (imgVerification !== "IMG") {
+        return;
+    }
     const instance = basicLightbox.create(`
         <img src="${evt.target.dataset.source}" alt= "fuck, its not working">
     `);
