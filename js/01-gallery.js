@@ -10,7 +10,7 @@ function createImgCards(galleryItems) {
     return galleryItems
         .map(({preview, original, description}) => {
             return `<div class="gallery__item">
-  <a class="gallery__link" rel="noopener noreferrer" href="${original}>
+  <a class="gallery__link" rel="noopener noreferrer">
     <img
       class="gallery__image"
       src="${preview}"
